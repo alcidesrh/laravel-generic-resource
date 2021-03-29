@@ -27,12 +27,13 @@ Let say that with want a list of users with just the these fields: id, name, par
     ...
     $user = User::find(1);
     return new GenericResource($user, ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]); 
-
+  
 
 You can add many nested level as the relations allow  
 
     'products' => ['id', 'name', 'price', 'order' => ['id', 'created_at', 'company' => ['id', 'name']]]**  
-
+  
+  
 **Note:** If the second argument (array of fields to get) is not supplied all fields of the model will be returned.
 
 **Generic ResourceCollection example**
