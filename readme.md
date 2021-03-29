@@ -25,9 +25,9 @@
 
 **Working with nested or related models**:
 
-Supose the User class has a parent property of type User class as well of ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
+Supose the User class has a parent property of type User class as well, a ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
 
-Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get those data:
+Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get only those data:
 
 
   ```php
@@ -126,7 +126,7 @@ You can add many nested level as the relations allow:
 
 The main goal of this package is provide an agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also an agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will returned a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
 
-It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically front the front-end via ajax.  
+It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically in the front-end via ajax.  
 
 The ```GenericController``` has five routes:  
   ```php
