@@ -41,21 +41,24 @@ You can add many nested level as the relations allow
         'id',  
         'name',  
         'price',  
-        'order' => ['id', 'created_at', 'company' => ['id', 'name']]]**  
+        'order' => ['id', 'created_at', 'company' => ['id', 'name']]]  
   
   
 
-**Note:** If the second argument (array of fields to get) is not supplied all fields of the model will be returned.
+**Note:** If the second argument (the array of fields to get) is not supplied all fields of the model will be returned.
 
 **Generic ResourceCollection example**
 
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
     $users = User::where('active', 1);
-    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
+    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);// it will return a collection of user with just the id and name fields.
 
     //you can pass nested property as well as the example before
-    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]);
+    return new GenericResourceCollection( $users->paginate( $perPage ), [  
+        'id',  
+        'name',  
+        'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]);
 
 **Note**: Both GenericResource and GenericResourceCollection classes are the same types referenced in the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
