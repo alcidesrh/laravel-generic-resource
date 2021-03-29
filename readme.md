@@ -85,6 +85,11 @@ You can add many nested level as the relations allow:
   ```sh
   composer require alcidesrh/laravel-generic-resource  
   ```
+
+- npm
+  ```sh
+  composer require alcidesrh/laravel-generic-resource
+  ```  
 <br>
 
 ## GenericController
