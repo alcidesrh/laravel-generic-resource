@@ -58,7 +58,7 @@ You can add many nested level as the relations allow:
   
 <br>
 
-**Important:** In order to return nested relations data it is require make the query on the model's Fascade.
+**Important:** In order to return nested relations data it is require make the query through the model's Fascade.
 
 ```php
     // this will work
