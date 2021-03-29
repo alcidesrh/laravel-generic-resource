@@ -84,6 +84,8 @@ You can add many nested level as the relations allow:
 
     composer require alcidesrh/laravel-generic-resource  
 
+<br>
+
 ## GenericController
 
 The main goal of this package is provide the agnostic Resource and ResourceCollection that you can use in any place of you app. However this package provide also a generic or agnostic Controller which can be used to fetch which not require an a complex query and return GenericResource only with the fields that we require.  
