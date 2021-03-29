@@ -4,7 +4,7 @@
 
  Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input's select. 
  
- Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down you app and it could bring others issues like memory leaks for example. 
+ Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down the app and it could bring others issues like memory leaks for example. 
  
  Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.  
 
@@ -99,15 +99,70 @@ You can add many nested level as the relations allow:
 
 ## GenericController
 
-The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection``` that you can use in any place of you app. However this package provide also a generic or agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that we require.  
+The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also a generic or agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that we require. 
+
+It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically.  
 
 This ```GenericController``` has four routes than can be configured as will it be shown later:  
-  ```
-  -yourdomain/generic/list: return a GenericResourceCollection
-  -yourdomain/generic/create: return a GenericResource of the type created
-  -yourdomain/generic/update: return a GenericResource of the type updated
-  -yourdomain/generic/delete: return a true if the item was deleted
-  ```
+  ```php
+  /generic/list    //return a GenericResourceCollection
+  /generic/create: //return a GenericResource of the type created
+  /generic/update: //return a GenericResource of the type updated
+  /generic/delete: //return a true if the item was deleted
+  ```  
+
+###  /generic/list  
+
+ ```js
+  axios
+  .post("/generic/list", {
+    table: "users",
+    page: 1,
+    itemsPerPage: 10,
+    fields: ["id", "name", "created_at", "role_id", "email", "company_id"],
+    // where clause: rule is column: value or column: {operator: someoperator, value: somevalue}
+    // operator value should be some of these: '=', '!=', '<', '<=', '>', '>=', '<>', 'like', 'contain'
+    where: {
+      // will generate ( created_at > '2021-03-11 20:26:00.0' )
+      created_at: {operator: '>', value: '2020-09-11 20:26:00.0'},
+      // will generate ( email_verified_at IS NOT NULL )
+      email_verified_at: {operator: '!=', value: null},
+      // when the operator's parameter is omitted the default operator will be '=', will generate ( role_id = 2 )
+      role_id: 2,
+      // the non-existent 'contain' will generate ( email LIKE %legendary% AND email LIKE %zangetsu% )
+      // this example zangetsu.ins@company.com and jhon.legendary.dc@company.com will match
+      email: {operator: 'contain', value: ['legendary',  'zangetsu']},
+      
+    },
+    //orWhere clause accept same rules as simple where with one more
+    orWhere: {
+      // you can pass an array as a value, it will generate (role_id = 1 OR role_id = 2)
+      role_id: [1, 2],
+      // will generate (role_id != 1 OR role_id != 2)
+      role_id: {operator: '!=', value: [1,2]}
+    },
+    whereIn: {
+      // return items with those ids
+       id: [1, 23, 35]
+    },
+    whereNotIn: {
+      // return items with neither of these ids
+       id: [1, 23, 35]
+    },
+    whereBetween: {
+      // return items with price between 25 and 35
+       price: [25, 35]
+    },
+    // return items with price less than 25 and greater than 35
+    whereNotBetween: {
+       id: [25, 35]
+    },
+    // order by id ascendingly of course the value can be DESC
+    orderBy:{
+     id: 'ASC'
+    }
+  });
+  ``` 
 
 
 ### Configuration
