@@ -12,7 +12,7 @@
 
  ## Usage
 
- **GenericResource**:  
+ **GenericResource**  
 
   ```php
     use Alcidesrh\Generic\GenericResource;
