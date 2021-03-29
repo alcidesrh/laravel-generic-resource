@@ -1,14 +1,17 @@
-## Generic Resource for Laravel.
+## <div style="text-align: center;">A generic Laravel's Resource and ResourceCollection.</div>
 
-### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every simple case.
+### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every single case.
 
- Let say sometimes you may need just the id and the name of some entity: e.g. to list it in an input's select. 
+ Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input's select. 
  
- Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data's **overfetching** that can slow down you app which is not good for the user's expirience and it could bring others issues like memory leaks for example. 
+ Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down you app and it could bring others issues like memory leaks for example. 
  
- Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every simple case even when you need fetch some data which no require a complex transformation
+ Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.
 
-    composer require barryvdh/laravel-dompdf
+ The generic Resource and ResourceCollection:
+
+    $user = User::find(1);
+    new GenericResource($user, ['id', 'name']); //will only return the id and name field.
 
 ## Installation
 
