@@ -1,4 +1,4 @@
-## <p style='text-align: center;'>A generic Laravel's Resource and ResourceCollection.</p>
+## <p align="center">A generic Laravel's Resource and ResourceCollection.</p>
 
 ### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every single case.
 
