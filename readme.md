@@ -1,6 +1,6 @@
 ## <p align="center">A generic and agnostic Laravel's Resource and ResourceCollection.</p>
 
-### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every single case.
+### This package can help you to return data as a traditional Laravel's Resource without make a Resource for every single case.
 
  Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input select. 
  
