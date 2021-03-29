@@ -1,8 +1,12 @@
 ## Generic resource for Laravel.
 
-### Laravel wrapper for [Dompdf HTML to PDF Converter](https://github.com/dompdf/dompdf)
+### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every simple case.
 
-This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every simple case. Let say sometimes you may need just the id and the name of some entity: e.g. to list it in an input's select. Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name then you are overfetching data which is not good for the user's expirience and other issues as memory leak for example. Onother solution is make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every simple case when you need fecht some data which no require a complex transformation.
+ Let say sometimes you may need just the id and the name of some entity: e.g. to list it in an input's select. 
+ 
+ Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are **overfetching** data which it is not good for the user's expirience and other issues like memory leak for example. 
+ 
+ Onother solution is make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every simple case when you need fecht some data which no require a complex transformation.
 
     composer require barryvdh/laravel-dompdf
 
