@@ -1,4 +1,4 @@
-## <p align="center">A generic Laravel's Resource and ResourceCollection.</p>
+## <p align="center">A generic and agnostic Laravel's Resource and ResourceCollection.</p>
 
 ### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every single case.
 
@@ -33,8 +33,10 @@ Let say that with want a list of users with just the these fields: id, name, par
     $users = User::where('active', 1);
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
 
-    //you can pass nested property as well as the example above
-    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]); 
+    //you can pass nested property as well as the example before
+    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]);
+
+Both GenericResource and GenericResourceCollection are the same type referenced in <a href="https://laravel.com/docs/8.x/eloquent-resources">Laravel's Api Resources documentation</a> with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 ## Installation
 
 ### Laravel 5.x:
