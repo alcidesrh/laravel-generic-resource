@@ -58,7 +58,7 @@ You can add many nested level as the relations allow:
   
 <br>
 
-**Important:** In order to return nested relations data it is require make the query on the Model Fascade.
+**Important:** In order to return nested relations data it is require make the query on the model's Fascade.
 
 ```php
     // this will work
@@ -73,10 +73,9 @@ You can add many nested level as the relations allow:
     // this won't
     new GenericResource( DB::table('users')->where('id', 1)->first(), [  
         'id',  
-        'name',
-        // it can not be access the this property
-        // cause the the object recovered an stdClass
+        'name',        
         'parent' => ['id', 'name'] 
+        // it can not be access the parent property since the object retrieved is an stdClass
     ] );
   ```
 
@@ -93,7 +92,7 @@ You can add many nested level as the relations allow:
     // it will return a collection of user with only the id and name fields.
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
 
-    //you can pass nested property as well as the example before
+    //you can pass nested property as well as in the GenericResource
     return new GenericResourceCollection( $users->paginate( $perPage ), [  
         'id',  
         'name',  
@@ -128,13 +127,13 @@ It can help to not overload the app with routes and controller's functions for e
 
 This ```GenericController``` has four routes than can be configured as will it be shown later:  
   ```php
-  /generic/list    //return a GenericResourceCollection
-  /generic/create: //return a GenericResource of the type created
-  /generic/update: //return a GenericResource of the type updated
-  /generic/delete: //return a true if the item was deleted
+  Method: POST /generic/list    //return a GenericResourceCollection
+  Method: POST /generic/create //return a GenericResource of the type created
+  Method: POST /generic/update //return a GenericResource of the type updated
+  Method: POST /generic/delete //return a true if the item was deleted
   ```  
 
-###  Route /generic/list will return a GenericResourceCollection
+###  Route /generic/list to return a GenericResourceCollection
 
  ```js
   axios
@@ -189,11 +188,103 @@ This ```GenericController``` has four routes than can be configured as will it b
      id: 'ASC'
     }
   });
-  ``` 
+  ```  
+  
+  <br>
+  
+  ###  Route /generic/create to create an item. It will return a GenericResource   
+
+  ```js
+  axios
+  .post("/generic/create", {
+    table: "roles",
+    // fields to return in the GenericResource once created
+    fields: ["id", "name"],
+    // values: pair column: value
+    values:{
+     name: 'Admin',
+     slug: 'admin',
+    },
+    // can insert many in one request
+    many: [
+      {
+        name: "User editor",
+        slug: "user-editor",
+      },
+      {
+        name: "Forum admin",
+        slug: "forum-admin",
+      },
+    ],
+  });
+  ```  
+  
+  <br>
+  
+  ###  Route /generic/update to update an item. It will return GenericResource  
+
+  ```js
+  axios
+  .post("/generic/update", {
+    table: "roles",
+    // if of the item to update
+    id: 3,
+    // many ids to update many items with the same values in one request.
+    many: [35, 36, 37]
+    // fields to return in the GenericResource once updated
+    fields: ["id", "name"],
+    // values: pair column: value
+    values: {
+      name: "Room Admin",
+      slug: "room-admin",
+    },
+  });
+  ```
+  
+  <br>
+  
+  ###  Route /generic/item to get an item. It will return GenericResource  
+
+  ```js
+  axios
+  .post("/generic/delete", {
+    table: "user",
+    // if of the item to delete
+    id: 3,
+    //fields to return in the GenericResource
+    fields: ["id", "name", "slug"]
+  });
+  ```
+  
+  <br>
+  
+  ###  Route /generic/delete to delete an item  
+  
+  ```js
+  axios
+  .post("/generic/delete", {
+    table: "user",
+    // if of the item to delete
+    id: 3,
+  });
+  ```
 
 
-### Configuration
-The defaults configuration settings are set in `config/dompdf.php`. Copy this file to your own config directory to modify the values. You can publish the config using this command:
+### Route namespace and pagination configuration
+Once installed you can make ``` php artisan vendor:publish`` to publish the package's configuration or you can manually copy /vendor/alcidesrh/generic-resource.php to /config  
+<br>
+**/config/generic-resource.php  
+
+```js
+  axios
+  .post("/generic/delete", {
+    table: "user",
+    // if of the item to delete
+    id: 3,
+  });
+```
+
+
 
     php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
 
