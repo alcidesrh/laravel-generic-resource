@@ -13,9 +13,10 @@
     use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1);
-    return new GenericResource($user, ['id', 'name']); //will only return the id and name fields.
+    return new GenericResource($user, ['id', 'name']); //it will only return the id and name fields.
 
 **Working with nested or related models**:
+
 Supose the User class has a parent property of type User class as well in a relation belongsTo with itself. And also User class has a relation with Product class of type belongsToMany. So $user->parent return an intance of User class and $user->products a collection of intances of Product class. 
 
 Let say that with want a list of users with just the these fields: id, name, parent (just id and name fields of the parent) and products(just id, name and price fields of the product). This is how we can get those data:
@@ -30,8 +31,10 @@ Let say that with want a list of users with just the these fields: id, name, par
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
     $users = User::where('active', 1);
-    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']); //return a list of users just with the id and name fields.
+    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
 
+    //you can pass nested property as well as the example above
+    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]); 
 ## Installation
 
 ### Laravel 5.x:
