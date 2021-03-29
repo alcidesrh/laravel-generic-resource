@@ -197,10 +197,8 @@ The ```GenericController``` has five routes:
 <br>
 
   **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter above due the generic nature of the query. DB Facade is used to make the query which return stdClass type. 
-  
-<br>
-  
-  ### /generic/create route create an item. It will return a GenericResource   
+
+ ### /generic/create route create an item. It will return a GenericResource   
 
   ```js
   axios
