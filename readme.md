@@ -71,10 +71,14 @@ You can add many nested level as the relations allow:
 
 **Note**: Both GenericResource and GenericResourceCollection classes were made following the guide line from the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
+<br>
+
 ## Requirement
 
 -Laravel >= 5  
 -php >= 7.0
+
+<br>
 
 ## Installation
 
