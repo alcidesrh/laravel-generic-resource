@@ -18,7 +18,7 @@
     $user = User::find(1); 
 
     //it will only return the id and name fields.
-    return new GenericResource($user, ['id', 'name']);
+    return new GenericResource( $user, ['id', 'name']);
   ``` 
 
 **Working with nested or related models**:
@@ -32,7 +32,7 @@ Let say that with want a list of users with just these fields: id, name, parent 
     use Alcidesrh\Generic\GenericResource;
 
     $user = User::find(1);
-    return new GenericResource($user, [  
+    return new GenericResource( $user, [  
         'id', 'name',  
         'parent' => ['id', 'name'],  
         'products' => ['id', 'name', 'price']  
@@ -56,6 +56,16 @@ You can add many nested level as the relations allow:
   
   
 <br>
+
+**Important:** In order to return nested relations data it is require make the query on the Model Fascade.
+
+```php
+    // this will work
+    new GenericResource( $user, ['id', 'name'] )
+
+    // this won't
+    new GenericResource( $user, ['id', 'name'] )
+  ```
 
 **Note:** If the second argument (the array of fields to get) is not supplied all fields of the model will be returned.
 
@@ -111,14 +121,18 @@ This ```GenericController``` has four routes than can be configured as will it b
   /generic/delete: //return a true if the item was deleted
   ```  
 
-###  /generic/list  
+###  Route /generic/list will return a GenericResourceCollection
 
  ```js
   axios
   .post("/generic/list", {
+    // table to query
     table: "users",
+    // page to return
     page: 1,
+    // item per page
     itemsPerPage: 10,
+    // fileds to return
     fields: ["id", "name", "created_at", "role_id", "email", "company_id"],
     // where clause: rule is column: value or column: {operator: someoperator, value: somevalue}
     // operator value should be some of these: '=', '!=', '<', '<=', '>', '>=', '<>', 'like', 'contain'
