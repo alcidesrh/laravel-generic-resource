@@ -17,9 +17,9 @@
 
 **Working with nested or related models**:
 
-Supose the User class has a parent property of type User class as well in a relation belongsTo with itself. And also User class has a relation with Product class of type belongsToMany. So $user->parent return an intance of User class and $user->products a collection of intances of Product class. 
+Supose the User class has a parent property of type User class as well in a type belongsTo relation with itself. And also User class has a type belongsToMany relation with Product class. So $user->parent return an intance of User class and $user->products a collection of intances of Product class. 
 
-Let say that with want a list of users with just the these fields: id, name, parent (just id and name fields of the parent) and products(just id, name and price fields of the product). This is how we can get those data:
+Let say that with want a list of users with just the these fields: id, name, parent (just id and name fields of the parent) and products list(just id, name and price fields of the product). This is how we can get those data:
 
     use Alcidesrh\Generic\GenericResource;
     ...
@@ -36,15 +36,17 @@ Let say that with want a list of users with just the these fields: id, name, par
     //you can pass nested property as well as the example before
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]);
 
-**Note**
-Both GenericResource and GenericResourceCollection classes are the same type referenced in <a href="https://laravel.com/docs/8.x/eloquent-resources" target="_blank">Laravel's Api Resources documentation</a> with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+**Note**: Both GenericResource and GenericResourceCollection classes are the same types referenced in the official <a href="https://laravel.com/docs/8.x/eloquent-resources" target="_blank">Laravel's Api Resources documentation</a> with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+
+## Requirement
+
+-Laravel >= 5
+-Php >= 7.0
+
 ## Installation
 
-### Laravel 5.x:
+    composer require alcidesrh/laravel-generic-resource
 
-After updating composer, add the ServiceProvider to the providers array in config/app.php
-
-    Barryvdh\DomPDF\ServiceProvider::class,
 
 You can optionally use the facade for shorter code. Add this to your facades:
 
