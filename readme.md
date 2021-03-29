@@ -23,7 +23,7 @@
 
 Supose the User class has a parent property of type User class as well in a type belongsTo relation with itself. And also User class has a type belongsToMany relation with Product class. So $user->parent return an intance of User class and $user->products a collection of intances of Product class. 
 
-Let say that with want a list of users with just the these fields: id, name, parent (just id and name fields of the parent) and products list(just id, name and price fields of the product). This is how we can get those data:
+Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get those data:
 
     use Alcidesrh\Generic\GenericResource;
     ...
@@ -58,7 +58,7 @@ You can add many nested level as the relations allow:
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
     $users = User::where('active', 1);  
-    // it will return a collection of user with just the id and name fields.
+    // it will return a collection of user with only the id and name fields.
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
 
     //you can pass nested property as well as the example before
