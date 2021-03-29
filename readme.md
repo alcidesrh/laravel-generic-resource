@@ -15,7 +15,10 @@
     $user = User::find(1);
     return new GenericResource($user, ['id', 'name']); //will only return the id and name fields.
 
-Worked with nested or related models. Supose the user model has a parent of type User model as well in a relation belongsTo with itself. And also has a relation with Product model of type belongsToMany. So $user->parent return an intance of User model and $user->products a collection of Product model. Let say that with want a list of users with just the these fileds: id, name, parent (just id and name fields of parent) and products(just id, name and price fields of product). This is how we can get those data:
+**Working with nested or related models**:
+Supose the User class has a parent property of type User class as well in a relation belongsTo with itself. And also User class has a relation with Product class of type belongsToMany. So $user->parent return an intance of User class and $user->products a collection of intances of Product class. 
+
+Let say that with want a list of users with just the these fields: id, name, parent (just id and name fields of the parent) and products(just id, name and price fields of the product). This is how we can get those data:
 
     use Alcidesrh\Generic\GenericResource;
     ...
