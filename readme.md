@@ -78,6 +78,7 @@ You can add many nested level as the relations allow:
         // it can not be access the parent property since the object retrieved is an stdClass
     ] );
   ```
+  <br>
 
 **Note:** If the second argument (the array of fields to get) is not supplied all fields of the model will be returned.
 
