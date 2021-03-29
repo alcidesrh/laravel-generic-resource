@@ -2,7 +2,7 @@
 
 ### This package can help you to fetch data as a traditional Laravel's Resource but without make a Resource for every single case.
 
- Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input's select. 
+ Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input select. 
  
  Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down the app and it could bring others issues like memory leaks for example. 
  
