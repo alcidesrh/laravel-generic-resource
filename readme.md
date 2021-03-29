@@ -125,7 +125,7 @@ The main goal of this package is provide the agnostic ```GenericResource``` and 
 
 It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically.  
 
-This ```GenericController``` has four routes than can be configured as will it be shown in the below section:  
+This ```GenericController``` has four routes:  
   ```php
   Method: POST /generic/list    //return a GenericResourceCollection
   Method: POST /generic/create //return a GenericResource of the type created
@@ -272,7 +272,7 @@ This ```GenericController``` has four routes than can be configured as will it b
   <br>
 
 ## Route namespace and pagination configuration
-Once installed you can make ``` php artisan vendor:publish``` to publish the package's configuration or manually copy /vendor/alcidesrh/generic-resource.php to /config  
+Once installed runing console command ``` php artisan vendor:publish``` will publish the package's configuration. Also it can be done copy manually /vendor/alcidesrh/generic-resource.php to /config  
 <br>
 
 **/config/generic-resource.php** 
