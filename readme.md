@@ -25,9 +25,9 @@
 
 **Working with nested or related models**:
 
-Supose the User class has a parent property of type User class as well, a ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
+Supose the User class has a ```parent``` property of type ```User``` class as well, a ```belongsTo``` relation with itself. And also ```User``` class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of ```User``` class and ```$user->products``` a collection of intances of ```Product``` class. 
 
-Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get only those data:
+Let say that with want a list of users with just these fields: ```id```, ```name```, ```parent``` (only ```id``` and ```name``` fields of the ```parent```) and products list (only ```id```, ```name``` and ```price``` fields of the product). This is how we can get only those data:
 
 
   ```php
