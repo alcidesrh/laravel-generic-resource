@@ -23,7 +23,7 @@
 
 **Working with nested or related models**:
 
-Supose the User class has a parent property of type User class as well in a type ```belongsTo``` relation with itself. And also User class has a type ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
+Supose the User class has a parent property of type User class as well of ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
 
 Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get those data:
 
@@ -79,7 +79,7 @@ You can add many nested level as the relations allow:
     ]);
   ```
 
-**Note**: Both GenericResource and GenericResourceCollection classes were made following the guide line from the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+**Note**: Both ```GenericResource``` and ```GenericResourceCollection``` classes were made following the guide line from the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
 <br>
 
@@ -99,9 +99,9 @@ You can add many nested level as the relations allow:
 
 ## GenericController
 
-The main goal of this package is provide the agnostic GenericResource and GenericResourceCollection that you can use in any place of you app. However this package provide also a generic or agnostic Controller which can be used to fetch data which not require a complex query or transformation and return a GenericResource or GenericResourceCollection only with the fields that we require.  
+The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection``` that you can use in any place of you app. However this package provide also a generic or agnostic Controller which can be used to fetch data which not require a complex query or transformation and return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that we require.  
 
-This GenericController has four routes than can be configured as will it be shown later:  
+This ```GenericController``` has four routes than can be configured as will it be shown later:  
   ```
   -yourdomain/generic/list: return a GenericResourceCollection
   -yourdomain/generic/create: return a GenericResource of the type created
