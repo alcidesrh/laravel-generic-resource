@@ -36,11 +36,11 @@ Let say that with want a list of users with just the these fields: id, name, par
     //you can pass nested property as well as the example before
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]);
 
-**Note**: Both GenericResource and GenericResourceCollection classes are the same types referenced in the official <a href="https://laravel.com/docs/8.x/eloquent-resources" target="_blank">Laravel's Api Resources documentation</a> with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+**Note**: Both GenericResource and GenericResourceCollection classes are the same types referenced in the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
 ## Requirement
 
--Laravel >= 5
+-Laravel >= 5  
 -Php >= 7.0
 
 ## Installation
