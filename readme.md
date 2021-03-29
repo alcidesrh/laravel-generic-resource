@@ -57,8 +57,9 @@ You can add many nested level as the relations allow:
 
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
-    $users = User::where('active', 1);
-    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);// it will return a collection of user with just the id and name fields.
+    $users = User::where('active', 1);  
+    // it will return a collection of user with just the id and name fields.
+    return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
 
     //you can pass nested property as well as the example before
     return new GenericResourceCollection( $users->paginate( $perPage ), [  
