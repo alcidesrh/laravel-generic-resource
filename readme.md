@@ -83,11 +83,6 @@ You can add many nested level as the relations allow:
 ## Installation  
 
   ```sh
-  composer require alcidesrh/laravel-generic-resource  
-  ```
-
-- npm
-  ```sh
   composer require alcidesrh/laravel-generic-resource
   ```  
 <br>
