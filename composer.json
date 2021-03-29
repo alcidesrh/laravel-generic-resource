@@ -1,0 +1,29 @@
+{
+    "name": "alcidesrh/laravel-generic-resource",
+    "description": "A generic or agnostic Laravel's Resource and their CRUD(create, read, update, delete) operations.",
+    "type": "helper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "alcidesrh",
+            "email": "alcidesrh@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alcidesrh\\Generic\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alcidesrh\\Generic\\ServiceProvider"
+            ]
+        }
+    }
+}
