@@ -33,7 +33,8 @@ Let say that with want a list of users with just these fields: id, name, parent 
 
     $user = User::find(1);
     return new GenericResource( $user, [  
-        'id', 'name',  
+        'id',  
+        'name',  
         'parent' => ['id', 'name'],  
         'products' => ['id', 'name', 'price']  
     ]);
@@ -61,10 +62,22 @@ You can add many nested level as the relations allow:
 
 ```php
     // this will work
-    new GenericResource( $user, ['id', 'name'] )
+    new GenericResource( User::find(1), ['id', 'name'] );
+
+    // this will work
+    new GenericResource( User::find(1), ['id', 'name', 'parent' => ['id', 'name']] );
+
+    // this will work
+    new GenericResource( DB::table('users')->where('id', 1)->first(), ['id', 'name'] )
 
     // this won't
-    new GenericResource( $user, ['id', 'name'] )
+    new GenericResource( DB::table('users')->where('id', 1)->first(), [  
+        'id',  
+        'name',
+        // it can not be access the this property
+        // cause the the object recovered an stdClass
+        'parent' => ['id', 'name'] 
+    ] );
   ```
 
 **Note:** If the second argument (the array of fields to get) is not supplied all fields of the model will be returned.
