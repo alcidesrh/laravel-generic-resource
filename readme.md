@@ -6,7 +6,9 @@
  
  Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down you app and it could bring others issues like memory leaks for example. 
  
- Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.
+ Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.  
+
+ ## Usage
 
  **Generic Resource example**:
 
@@ -25,6 +27,10 @@ Let say that with want a list of users with just the these fields: id, name, par
     ...
     $user = User::find(1);
     return new GenericResource($user, ['id', 'name', 'parent' => ['id', 'name'], 'products' => ['id', 'name', 'price']]); 
+
+You can add many nested level as the relations allow e.g. **'products' => ['id', 'name', 'price', 'order' => ['id', 'created_at', 'company' => ['id', 'name']]]**  
+
+**Note:** If the second argument (array of fields to get) is not supplied all fields of the model will be returned.
 
 **Generic ResourceCollection example**
 
@@ -47,50 +53,6 @@ Let say that with want a list of users with just the these fields: id, name, par
 
     composer require alcidesrh/laravel-generic-resource
 
-
-You can optionally use the facade for shorter code. Add this to your facades:
-
-    'PDF' => Barryvdh\DomPDF\Facade::class,
-
-### Lumen:
-
-After updating composer add the following lines to register provider in `bootstrap/app.php`
-
-  ```
-  $app->register(\Barryvdh\DomPDF\ServiceProvider::class);
-  ```
-  
-To change the configuration, copy the config file to your config folder and enable it in `bootstrap/app.php`:
-
-  ```
-  $app->configure('dompdf');
-  ```
-  
-## Using
-
-You can create a new DOMPDF instance and load a HTML string, file or view name. You can save it to a file, or stream (show in browser) or download.
-
-    $pdf = App::make('dompdf.wrapper');
-    $pdf->loadHTML('<h1>Test</h1>');
-    return $pdf->stream();
-
-Or use the facade:
-
-    $pdf = PDF::loadView('pdf.invoice', $data);
-    return $pdf->download('invoice.pdf');
-
-You can chain the methods:
-
-    return PDF::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
-
-You can change the orientation and paper size, and hide or show errors (by default, errors are shown when debug is on)
-
-    PDF::loadHTML($html)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf')
-
-If you need the output as a string, you can get the rendered PDF with the output() function, so you can save/output it yourself.
-
-Use `php artisan vendor:publish` to create a config file located at `config/dompdf.php` which will allow you to define local configurations to change some settings (default paper etc).
-You can also use your ConfigProvider to set certain keys.
 
 ### Configuration
 The defaults configuration settings are set in `config/dompdf.php`. Copy this file to your own config directory to modify the values. You can publish the config using this command:
