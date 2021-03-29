@@ -34,7 +34,7 @@ Let say that with want a list of users with just the these fields: id, name, par
         'products' => ['id', 'name', 'price']  
     ]);
 <br>
-You can add many nested level as the relations allow  
+You can add many nested level as the relations allow:  
 <br>
 <br>
     
@@ -47,7 +47,7 @@ You can add many nested level as the relations allow
     ]  
   
   
-
+<br>
 **Note:** If the second argument (the array of fields to get) is not supplied all fields of the model will be returned.
 
 **Generic ResourceCollection example**
