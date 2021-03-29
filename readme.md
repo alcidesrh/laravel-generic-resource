@@ -14,8 +14,10 @@
 
     use Alcidesrh\Generic\GenericResource;
     ...
-    $user = User::find(1);
-    return new GenericResource($user, ['id', 'name']); //it will only return the id and name fields.
+    $user = User::find(1); 
+     
+    //it will only return the id and name fields.
+    return new GenericResource($user, ['id', 'name']); 
 
 **Working with nested or related models**:
 
