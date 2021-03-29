@@ -197,7 +197,7 @@ The ```GenericController``` has five routes:
 <br>
 
   **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter above due the generic nature of the query. DB Facade is used to make the query which return stdClass type. 
-
+  
 <br>
 
  ### /generic/create route create an item. It will return a GenericResource   
@@ -280,7 +280,7 @@ The ```GenericController``` has five routes:
   <br>
 
 ## Route namespace and pagination configuration
-Once installed runing console command ``` php artisan vendor:publish``` will publish the package's configuration. Also it can be done copying manually /vendor/alcidesrh/generic-resource.php to /config  
+Once installed runing console command ``` php artisan vendor:publish``` will publish the package's configuration. Also it can be done manually copy /vendor/alcidesrh/generic-resource.php to /config  
 <br>
 
 **/config/generic-resource.php** 
