@@ -126,19 +126,17 @@ You can add many nested level as the relations allow:
 
 The main goal of this package is provide an agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also an agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will returned a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
 
-It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically front the front-end vie ajax.  
+It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically front the front-end via ajax.  
 
-This ```GenericController``` has five routes:  
+The ```GenericController``` has five routes:  
   ```php
-  Method: POST /generic/list    //return a GenericResourceCollection
-  Method: POST /generic/create  //return a GenericResource that was created
-  Method: POST /generic/update  //return a GenericResource that was updated
-  Method: POST /generic/item    //return a GenericResource
-  Method: POST /generic/delete  //return a true if the item was deleted
+  Method: POST /generic/list  
+  Method: POST /generic/create  
+  Method: POST /generic/update  
+  Method: POST /generic/item    
+  Method: POST /generic/delete  
   ```  
   <br>
-
-  **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter below due the generic nature of the query. DB Facade is used to make the query which return stdClass type.
 
 ### /generic/list route return a GenericResourceCollection
 
@@ -195,7 +193,9 @@ This ```GenericController``` has five routes:
      id: 'ASC'
     }
   });
-  ```  
+  ``` 
+
+  **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter above due the generic nature of the query. DB Facade is used to make the query which return stdClass type. 
   
   <br>
   
