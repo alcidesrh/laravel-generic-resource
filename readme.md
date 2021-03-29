@@ -330,8 +330,9 @@ return [
     ],
 ];
 ```
+<br>
 
-If you find this package useful please consider star it. Thank you. 
+*If you find this package useful please consider star it. Thank you.* 
 
 ### License
 
