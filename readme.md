@@ -32,12 +32,11 @@ Let say that with want a list of users with just the these fields: id, name, par
         'id', 'name',  
         'parent' => ['id', 'name'],  
         'products' => ['id', 'name', 'price']  
-    ]); 
-  
-  
+    ]);
 <br>
 <br>
 You can add many nested level as the relations allow  
+<br>
     
     ...
     'products' => [  
