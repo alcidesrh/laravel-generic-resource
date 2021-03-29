@@ -58,7 +58,7 @@ You can add many nested level as the relations allow:
   
 <br>
 
-**Important:** In order to return nested relations data it is require make the query through the model's Fascade.
+**Important:** In order to return nested relations data it is require make the query through the model's Facade.
 
 ```php
     // this will work
@@ -134,6 +134,9 @@ This ```GenericController``` has five routes:
   Method: POST /generic/item    //return a GenericResource
   Method: POST /generic/delete  //return a true if the item was deleted
   ```  
+  <br>
+
+  **Note:** It is not posible to asked for nested relations data in the fields parameter below due the generic nature of the query. Under the hook it is used DB Facade which return stdClass type.
 
 ### /generic/list route return a GenericResourceCollection
 
