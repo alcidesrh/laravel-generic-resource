@@ -91,11 +91,12 @@ You can add many nested level as the relations allow:
 The main goal of this package is provide the agnostic GenericResource and GenericResourceCollection that you can use in any place of you app. However this package provide also a generic or agnostic Controller which can be used to fetch data which not require a complex query or transformation and return a GenericResource or GenericResourceCollection only with the fields that we require.  
 
 This GenericController has four routes than can be configured as will it be shown later:  
-
-    -yourdomain**/generic/list**: return a GenericResourceCollection
-    -yourdomain/generic/create: return a GenericResource of the type created
-    -yourdomain/generic/update: return a GenericResource of the type updated
-    -yourdomain/generic/delete: return a true if the item was deleted
+```  
+-yourdomain**/generic/list**: return a GenericResourceCollection
+-yourdomain/generic/create: return a GenericResource of the type created
+-yourdomain/generic/update: return a GenericResource of the type updated
+-yourdomain/generic/delete: return a true if the item was deleted
+```
 
 
 ### Configuration
