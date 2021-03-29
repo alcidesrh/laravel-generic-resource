@@ -272,7 +272,7 @@ This ```GenericController``` has four routes than can be configured as will it b
   <br>
 
 ## Route namespace and pagination configuration
-Once installed you can make ``` php artisan vendor:publish`` to publish the package's configuration or you can manually copy /vendor/alcidesrh/generic-resource.php to /config  
+Once installed you can make ``` php artisan vendor:publish``` to publish the package's configuration or you can manually copy /vendor/alcidesrh/generic-resource.php to /config  
 <br>
 **/config/generic-resource.php  
 
