@@ -25,7 +25,9 @@ Supose the User class has a parent property of type User class as well in a type
 
 Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get those data:
 
-    use Alcidesrh\Generic\GenericResource;
+
+  ```sh
+  use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1);
     return new GenericResource($user, [  
@@ -33,6 +35,8 @@ Let say that with want a list of users with just these fields: id, name, parent 
         'parent' => ['id', 'name'],  
         'products' => ['id', 'name', 'price']  
     ]);
+  ```
+  
 <br>
 You can add many nested level as the relations allow:  
 <br>
@@ -93,7 +97,7 @@ The main goal of this package is provide the agnostic GenericResource and Generi
 
 This GenericController has four routes than can be configured as will it be shown later:  
   ```sh
-  -yourdomain**/generic/list**: return a GenericResourceCollection
+  -yourdomain/generic/list: return a GenericResourceCollection
   -yourdomain/generic/create: return a GenericResource of the type created
   -yourdomain/generic/update: return a GenericResource of the type updated
   -yourdomain/generic/delete: return a true if the item was deleted
