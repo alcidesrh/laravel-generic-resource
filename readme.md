@@ -8,13 +8,14 @@
  
  Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.
 
- Generic Resource and ResourceCollection:
+ **Generic Resource**:
 
     use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1);
     return new GenericResource($user, ['id', 'name']); //will only return the id and name fields.
 
+**Generic ResourceCollection**
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
     $users = User::where('active', 1);
