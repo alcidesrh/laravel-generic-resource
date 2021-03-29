@@ -13,8 +13,8 @@
  **Generic Resource example**:  
 
   ```php
-   use Alcidesrh\Generic\GenericResource;
-    ...
+    use Alcidesrh\Generic\GenericResource;
+
     $user = User::find(1); 
 
     //it will only return the id and name fields.
@@ -30,7 +30,7 @@ Let say that with want a list of users with just these fields: id, name, parent 
 
   ```php
     use Alcidesrh\Generic\GenericResource;
-    ...
+
     $user = User::find(1);
     return new GenericResource($user, [  
         'id', 'name',  
@@ -65,7 +65,7 @@ You can add many nested level as the relations allow:
 
  ```php
     use Alcidesrh\Generic\GenericResourceCollection;
-    ...
+
     $users = User::where('active', 1);  
     // it will return a collection of user with only the id and name fields.
     return new GenericResourceCollection( $users->paginate( $perPage ), ['id', 'name']);
