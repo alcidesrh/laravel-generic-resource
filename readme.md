@@ -15,7 +15,7 @@
     use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1); 
-     
+
     //it will only return the id and name fields.
     return new GenericResource($user, ['id', 'name']); 
 
@@ -35,7 +35,8 @@ Let say that with want a list of users with just the these fields: id, name, par
     ]); 
   
   
-
+<br>
+<br>
 You can add many nested level as the relations allow  
     
     ...
