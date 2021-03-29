@@ -80,10 +80,11 @@ You can add many nested level as the relations allow:
 
 <br>
 
-## Installation
+## Installation  
 
-    composer require alcidesrh/laravel-generic-resource  
-
+  ```sh
+  composer require alcidesrh/laravel-generic-resource  
+  ```
 <br>
 
 ## GenericController
@@ -96,7 +97,7 @@ This GenericController has four routes than can be configured as will it be show
   -yourdomain/generic/create: return a GenericResource of the type created
   -yourdomain/generic/update: return a GenericResource of the type updated
   -yourdomain/generic/delete: return a true if the item was deleted
-  ````
+  ```
 
 
 ### Configuration
