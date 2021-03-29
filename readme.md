@@ -10,14 +10,16 @@
 
  ## Usage
 
- **Generic Resource example**:
+ **Generic Resource example**:  
 
-    use Alcidesrh\Generic\GenericResource;
+  ```php
+   use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1); 
 
     //it will only return the id and name fields.
-    return new GenericResource($user, ['id', 'name']); 
+    return new GenericResource($user, ['id', 'name']);
+  ``` 
 
 **Working with nested or related models**:
 
@@ -26,8 +28,8 @@ Supose the User class has a parent property of type User class as well in a type
 Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list(only id, name and price fields of the product). This is how we can get those data:
 
 
-  ```sh
-  use Alcidesrh\Generic\GenericResource;
+  ```php
+    use Alcidesrh\Generic\GenericResource;
     ...
     $user = User::find(1);
     return new GenericResource($user, [  
@@ -41,14 +43,16 @@ Let say that with want a list of users with just these fields: id, name, parent 
 You can add many nested level as the relations allow:  
 <br>
 <br>
-    
+
+```php
     ...
     'products' => [  
         'id',  
         'name',  
         'price',  
         'order' => ['id', 'created_at', 'company' => ['id', 'name']]  
-    ]  
+    ]
+  ```  
   
   
 <br>
@@ -59,6 +63,7 @@ You can add many nested level as the relations allow:
 
 **Generic ResourceCollection example**
 
+ ```php
     use Alcidesrh\Generic\GenericResourceCollection;
     ...
     $users = User::where('active', 1);  
@@ -72,6 +77,7 @@ You can add many nested level as the relations allow:
         'parent' => ['id', 'name'],  
         'products' => ['id', 'name', 'price']  
     ]);
+  ```
 
 **Note**: Both GenericResource and GenericResourceCollection classes were made following the guide line from the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
@@ -96,7 +102,7 @@ You can add many nested level as the relations allow:
 The main goal of this package is provide the agnostic GenericResource and GenericResourceCollection that you can use in any place of you app. However this package provide also a generic or agnostic Controller which can be used to fetch data which not require a complex query or transformation and return a GenericResource or GenericResourceCollection only with the fields that we require.  
 
 This GenericController has four routes than can be configured as will it be shown later:  
-  ```sh
+  ```
   -yourdomain/generic/list: return a GenericResourceCollection
   -yourdomain/generic/create: return a GenericResource of the type created
   -yourdomain/generic/update: return a GenericResource of the type updated
