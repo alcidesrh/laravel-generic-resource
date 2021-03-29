@@ -136,7 +136,7 @@ This ```GenericController``` has five routes:
   ```  
   <br>
 
-  **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter below due the generic nature of the query. Under the hook it is used DB Facade which return stdClass type.
+  **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter below due the generic nature of the query. DB Facade is used to make the query which return stdClass type.
 
 ### /generic/list route return a GenericResourceCollection
 
