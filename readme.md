@@ -102,7 +102,7 @@ You can add many nested level as the relations allow:
     ]);
   ```
 
-**Note**: Both ```GenericResource``` and ```GenericResourceCollection``` classes were made following the guide line from the official *[Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources)* with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+**Note**: Both ```GenericResource``` and ```GenericResourceCollection``` classes were made following the guide line from the official [Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources) with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
 
 <br>
 
@@ -122,19 +122,20 @@ You can add many nested level as the relations allow:
 
 ## GenericController
 
-The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also a generic or agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
+The main goal of this package is provide an agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also an agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will returned a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
 
-It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically.  
+It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically front the front-end vie ajax.  
 
-This ```GenericController``` has four routes:  
+This ```GenericController``` has five routes:  
   ```php
   Method: POST /generic/list    //return a GenericResourceCollection
-  Method: POST /generic/create //return a GenericResource of the type created
-  Method: POST /generic/update //return a GenericResource of the type updated
-  Method: POST /generic/delete //return a true if the item was deleted
+  Method: POST /generic/create  //return a GenericResource that was created
+  Method: POST /generic/update  //return a GenericResource that was updated
+  Method: POST /generic/item    //return a GenericResource
+  Method: POST /generic/delete  //return a true if the item was deleted
   ```  
 
-###  Route /generic/list to return a GenericResourceCollection
+### /generic/list route return a GenericResourceCollection
 
  ```js
   axios
@@ -193,7 +194,7 @@ This ```GenericController``` has four routes:
   
   <br>
   
-  ###  Route /generic/create to create an item. It will return a GenericResource   
+  ### /generic/create route create an item. It will return a GenericResource   
 
   ```js
   axios
@@ -222,7 +223,7 @@ This ```GenericController``` has four routes:
   
   <br>
   
-  ###  Route /generic/update to update an item. It will return GenericResource  
+  ### /generic/update route update an item. It will return a GenericResource  
 
   ```js
   axios
@@ -244,7 +245,7 @@ This ```GenericController``` has four routes:
   
   <br>
   
-  ###  Route /generic/item to get an item. It will return GenericResource  
+  ### /generic/item route to get an item. It will return a GenericResource  
 
   ```js
   axios
@@ -259,7 +260,7 @@ This ```GenericController``` has four routes:
   
   <br>
   
-  ###  Route /generic/delete to delete an item  
+  ### /generic/delete route delete an item  
   
   ```js
   axios
