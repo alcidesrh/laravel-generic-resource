@@ -39,7 +39,7 @@ return [
     ],
     // configure pagination items per page and parameters names.
     'pagination' => [
-
+        
         //Items per page. Default 20.
         'itemsPerPage' => 20,
 
@@ -48,6 +48,5 @@ return [
 
         //Name of the param of the number of items per page e.g. axios.post( 'https://yourdomain/generic/list', {table: 'users', page: 1, itemsPerPage: 30} )
         'name_param_item_per_page' => 'itemsPerPage',
-
     ],
 ];
