@@ -10,7 +10,7 @@ return [
      */
     'route' => [
 
-        //Route's prefix for generic CRUD(create, read, update and delete) operations.
+        //Route's prefix for generic CRUD(create, read, update and delete) operations
         //Deafault 'generic' e.g.: axios.post( 'https://yourdomain/generic' )
         'prefix' => 'generic',
 

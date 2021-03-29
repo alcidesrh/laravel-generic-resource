@@ -54,7 +54,7 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->loadRoutesFrom(__DIR__.'/route.php');
 
         $this->publishes([
-            __DIR__.'/config.php' => config_path('generic-resource.php'),
+            __DIR__.'/generic-resource.php' => config_path('generic-resource.php'),
         ]);
     }
 
