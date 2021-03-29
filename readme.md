@@ -121,11 +121,11 @@ You can add many nested level as the relations allow:
 
 ## GenericController
 
-The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also a generic or agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that we require. 
+The main goal of this package is provide the agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also a generic or agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
 
 It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically.  
 
-This ```GenericController``` has four routes than can be configured as will it be shown later:  
+This ```GenericController``` has four routes than can be configured as will it be shown in the below section:  
   ```php
   Method: POST /generic/list    //return a GenericResourceCollection
   Method: POST /generic/create //return a GenericResource of the type created
