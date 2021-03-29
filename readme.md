@@ -8,9 +8,11 @@
  
  Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.  
 
+ ```GenericResource``` and ```GenericResourceColecction``` implement a solution to deal with that.
+
  ## Usage
 
- **Generic Resource example**:  
+ **GenericResource**:  
 
   ```php
     use Alcidesrh\Generic\GenericResource;
@@ -84,7 +86,7 @@ You can add many nested level as the relations allow:
 
 <br>
 
-**Generic ResourceCollection example**
+**GenericResourceCollection**
 
  ```php
     use Alcidesrh\Generic\GenericResourceCollection;
