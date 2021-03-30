@@ -24,7 +24,8 @@ Resource for every single case, even when you need to fetch some data that doesn
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#installation">Installation</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
