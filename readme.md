@@ -171,7 +171,7 @@ Method: POST /generic/delete
 
   <br>
 
-### /generic/list route return a GenericResourceCollection
+### /generic/list get a list. It return a GenericResourceCollection
 
 ```js
 axios.post("/generic/list", {
@@ -232,7 +232,7 @@ axios.post("/generic/list", {
 
 <br>
 
-### /generic/create route create an item. It will return a GenericResource
+### /generic/create create an item. It will return a GenericResource
 
 ```js
 axios.post("/generic/create", {
@@ -260,13 +260,13 @@ axios.post("/generic/create", {
 
   <br>
   
-  ### /generic/update route update an item. It will return a GenericResource
+  ### /generic/update update an item. It will return a GenericResource
 
 ```js
 axios
 .post("/generic/update", {
   table: "roles",
-  // if of the item to update
+  // id of the item to update
   id: 3,
   // many ids to update many items with the same values in one request.
   many: [35, 36, 37]
@@ -282,12 +282,12 @@ axios
 
   <br>
   
-  ### /generic/item route to get an item. It will return a GenericResource
+  ### /generic/item to get an item. It will return a GenericResource
 
 ```js
 axios.post("/generic/delete", {
   table: "user",
-  // if of the item to delete
+  // id of the item to delete
   id: 3,
   //fields to return in the GenericResource
   fields: ["id", "name", "slug"],
@@ -296,13 +296,13 @@ axios.post("/generic/delete", {
 
   <br>
   
-  ### /generic/delete route delete an item  
+  ### /generic/delete delete an item  
   
   ```js
   axios
   .post("/generic/delete", {
     table: "user",
-    // if of the item to delete
+    // id of the item to delete
     id: 3,
   });
   ```
