@@ -12,6 +12,7 @@ you are doing data **overfetching** that can slow down the app and it could brin
 Resource for every single case, even when you need to fetch some data that doesn't require a complex transformation.    
 
  ```GenericResource``` and ```GenericResourceColecction``` implement a solution to deal with that.  
+<br>
 
  <details open="open">
   <summary>Table of Contents</summary>
@@ -32,6 +33,7 @@ Resource for every single case, even when you need to fetch some data that doesn
     </li>
   </ol>
 </details>
+<br>
 
  ## Usage
 
