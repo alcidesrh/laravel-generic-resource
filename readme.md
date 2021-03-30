@@ -11,7 +11,32 @@ you are doing data **overfetching** that can slow down the app and it could brin
  Another solution is to make a dedicated Resource for that particular case, but as the app grows, you will find yourself making a new
 Resource for every single case, even when you need to fetch some data that doesn't require a complex transformation.    
 
- ```GenericResource``` and ```GenericResourceColecction``` implement a solution to deal with that.
+ ```GenericResource``` and ```GenericResourceColecction``` implement a solution to deal with that.  
+
+ <details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
  ## Usage
 
