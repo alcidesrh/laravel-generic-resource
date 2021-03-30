@@ -20,7 +20,7 @@ Resource for every single case, even when you need to fetch some data that doesn
       <a href="#usage">Usage</a>
       <ul>
         <li><a href="#genericresource">GenericResource</a></li>
-        <li><a href="#working-with-nested-or-related models">Working with nested or related models</a></li>
+        <li><a href="#genericresourcecollection">GenericResourceCollection</a></li>
       </ul>
     </li>
     <li>
@@ -53,7 +53,7 @@ Resource for every single case, even when you need to fetch some data that doesn
   ``` 
 <br>
 
-#### Working with nested or related models:
+**Working with nested or related models:**
 
 Supose the User class has a parent property of type User class as well, a ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` returns an intance of User class and ```$user->products``` a collection of intances of Product class. 
 
@@ -118,7 +118,7 @@ You can add many nested level as the relations allow:
 
 <br>
 
-**GenericResourceCollection**
+#### GenericResourceCollection
 
  ```php
     use Alcidesrh\Generic\GenericResourceCollection;
