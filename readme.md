@@ -19,7 +19,8 @@ Resource for every single case, even when you need to fetch some data that doesn
     <li>
       <a href="#usage">Usage</a>
       <ul>
-        <li><a href="#GenericResource">GenericResource</a></li>
+        <li><a href="#genericresource">GenericResource</a></li>
+        <li><a href="#generic-resource">GenericResource</a></li>
       </ul>
     </li>
     <li>
@@ -40,7 +41,7 @@ Resource for every single case, even when you need to fetch some data that doesn
 
  ## Usage
 
- **GenericResource**  
+ ### GenericResource
 
   ```php
     use Alcidesrh\Generic\GenericResource;
