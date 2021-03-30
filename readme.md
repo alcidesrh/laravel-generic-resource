@@ -41,7 +41,7 @@ Resource for every single case, even when you need to fetch some data that doesn
 
  ## Usage
 
- ##### GenericResource
+ **GenericResource**
 
   ```php
     use Alcidesrh\Generic\GenericResource;
