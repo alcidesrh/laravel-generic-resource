@@ -86,7 +86,9 @@ You can add many nested level as the relations allow:
   ```
   <br>
  
-**Note:** If the second argument (the array of fields to get) is not supplied, all fields of the model will be returned.
+**Note:**  
+- If the second argument (the array of fields to get) is not supplied, all fields of the model will be returned.  
+- If one of the fields to return doesn't exist in the model, will be omitted in the result array.
 
 <br>
 
