@@ -16,6 +16,8 @@ Resource for every single case, even when you need to fetch some data that doesn
  <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installation">Installation</a></li>
     <li>
       <a href="#usage">Usage</a>
       <ul>
@@ -27,12 +29,24 @@ Resource for every single case, even when you need to fetch some data that doesn
       </ul>
     </li>
       </ul>
-    </li>
-    <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#installation">Installation</a></li>
-    
+    </li>   
   </ol>
 </details>
+<br>
+
+## Requirements
+
+-Laravel >= 5  
+-php >= 7.0
+
+<br>
+
+## Installation
+
+```sh
+composer require alcidesrh/laravel-generic-resource
+```
+
 <br>
 
 ## Usage
@@ -135,21 +149,6 @@ You can add many nested level as the relations allow:
 <br>
 
 **Note**: Both `GenericResource` and `GenericResourceCollection` classes were made following the guide line from the official [Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources) with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
-
-<br>
-
-## Requirements
-
--Laravel >= 5  
--php >= 7.0
-
-<br>
-
-## Installation
-
-```sh
-composer require alcidesrh/laravel-generic-resource
-```
 
 <br>
 
