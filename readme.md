@@ -23,20 +23,13 @@ Resource for every single case, even when you need to fetch some data that doesn
         <li><a href="#genericresourcecollection">GenericResourceCollection</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#requirements">Requirements</a>
-      <a href="#installation">Installation</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#genericcontroller">GenericController</a>
+    <ul>
+        <li><a href="#route-namespace-and-pagination-configuration">Route namespace and pagination configuration</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
