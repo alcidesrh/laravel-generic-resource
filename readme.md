@@ -1,12 +1,15 @@
-## <p align="center">A generic and agnostic Laravel's Resource and ResourceCollection.</p>
+## <p align="center">A generic and agnostic Laravel Resource and ResourceCollection</p>
 
-### This package can help you to return data as a traditional Laravel's Resource without make a Resource for every single case.
+### This package can help you to return data as a traditional Laravel Resource without making a Resource for every single case.
 
- Let say sometimes you may need just the id and name fields of some entity: e.g. to list it in an input select. 
+
+ Sometimes you may need just the id and name fields of an entity: e.g. to list it in an input select.   
  
- Maybe you can use an existing Resource of that entity but if that Resource return more that the id and name fields then you are doing data **overfetching** that can slow down the app and it could bring others issues like memory leaks for example. 
- 
- Another solution is to make a dadicate Resource for that particular case but as the app it grows you will find yourself making a new Resource for every single case even when you need to fetch some data which no require a complex transformation.  
+ Maybe you can use an existing Resource of that entity, but if that Resource returns more that the id and name fields, then 
+you are doing data **overfetching** that can slow down the app and it could bring others issues like memory leaks for example. 
+
+ Another solution is to make a dedicated Resource for that particular case, but as the app grows, you will find yourself making a new
+Resource for every single case, even when you need to fetch some data that doesn't require a complex transformation.    
 
  ```GenericResource``` and ```GenericResourceColecction``` implement a solution to deal with that.
 
@@ -22,10 +25,11 @@
     //it will only return the id and name fields.
     return new GenericResource( $user, ['id', 'name']);
   ``` 
+<br>
 
 **Working with nested or related models**:
 
-Supose the User class has a parent property of type User class as well, a ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` return an intance of User class and ```$user->products``` a collection of intances of Product class. 
+Supose the User class has a parent property of type User class as well, a ```belongsTo``` relation with itself. And also User class has a ```belongsToMany``` relation with Product class. So ```$user->parent``` returns an intance of User class and ```$user->products``` a collection of intances of Product class. 
 
 Let say that with want a list of users with just these fields: id, name, parent (only id and name fields of the parent) and products list (only id, name and price fields of the product). This is how we can get only those data:
 
@@ -60,7 +64,7 @@ You can add many nested level as the relations allow:
   
 <br>
 
-**Important:** In order to return nested relations data it is require make the query through the model's Facade.
+**Important:** In order to return nested relations data it is required make the query through the model's Facade.
 
 ```php
     // this will work
@@ -81,8 +85,8 @@ You can add many nested level as the relations allow:
     ] );
   ```
   <br>
-
-**Note:** If the second argument (the array of fields to get) is not supplied all fields of will be returned.
+ 
+**Note:** If the second argument (the array of fields to get) is not supplied, all fields of the model will be returned.
 
 <br>
 
@@ -109,7 +113,7 @@ You can add many nested level as the relations allow:
 
 <br>
 
-## Requirement
+## Requirements
 
 -Laravel >= 5  
 -php >= 7.0
@@ -125,9 +129,10 @@ You can add many nested level as the relations allow:
 
 ## GenericController
 
-The main goal of this package is provide an agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package provide also an agnostic ```GenericController``` which can be used to fetch data which not require a complex query or transformation and it will returned a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that was requested or all fields if none was requested. 
+The main goal of this package is to provide an agnostic ```GenericResource``` and ```GenericResourceCollection```. However this package also provides an 
+agnostic ```GenericController``` which can be used to fetch data that doesn't require a complex query or transformation, and it will return a ```GenericResource``` or ```GenericResourceCollection``` only with the fields that were requested or all fields if none was requested.  
 
-It can help to not overload the app with routes and controller's functions for every small and simple data portion require dynamically in the front-end via ajax.  
+It can help to prevent overloading the app with routes and controller functions for every small and simple data portion required dynamically in the front-end via ajax.  
 
 The ```GenericController``` has five routes:  
   ```php
@@ -197,8 +202,8 @@ The ```GenericController``` has five routes:
   ``` 
 <br>
 
-  **Note:** It is not posible to asked for nested relations data in the ```fields``` parameter above due the generic nature of the query. DB Facade is used to make the query which return stdClass type. 
-  
+  **Note:** It is not posible to ask for nested relations data in the ```fields``` parameter above due the generic nature of the query. DB Facade is used to make the query, which returns stdClass type. 
+
 <br>
 
  ### /generic/create route create an item. It will return a GenericResource   
@@ -281,7 +286,7 @@ The ```GenericController``` has five routes:
   <br>
 
 ## Route namespace and pagination configuration
-Once installed runing console command ``` php artisan vendor:publish``` will publish the package's configuration. Also it can be done manually copy /vendor/alcidesrh/generic-resource.php to /config  
+Once installed runing console command ``` php artisan vendor:publish``` will publish the package's configuration. It can also be done manually copy /vendor/alcidesrh/generic-resource.php to /config  
 <br>
 
 **/config/generic-resource.php** 
