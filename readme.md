@@ -116,7 +116,7 @@ You can add many nested level as the relations allow:
         'id',
         'name',
         'parent' => ['id', 'name']
-        // it can not be access the parent property since the object retrieved is an stdClass
+        // it can not be access the parent property since the object retrieved is an stdClass type
     ] );
 ```
 
