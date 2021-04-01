@@ -8,7 +8,7 @@ class GenericResourceCollection extends ResourceCollection
 {
     private $fields;
 
-    public function __construct($query, $fields = [])
+    public function __construct($query, array $fields = null)
     {
         $this->fields = $fields;
         parent::__construct($query);
@@ -19,9 +19,10 @@ class GenericResourceCollection extends ResourceCollection
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request){
-        return $this->collection->map(function(GenericResource $resource) use ($request){
+    public function toArray($request)
+    {
+        return $this->collection->map(function (GenericResource $resource) use ($request) {
             return $resource->setFields($this->fields)->toArray($request);
-    })->all();
+        })->all();
     }
 }
