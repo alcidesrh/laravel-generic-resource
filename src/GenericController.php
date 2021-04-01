@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GenericController
-{    
+{
     function list(Request $request) {
 
         try {
@@ -143,8 +143,10 @@ class GenericController
         try {
             if ($id = $request->id) {
                 $query = DB::table($request->table);
-                if (is_array($request->fields))
+                if (is_array($request->fields)) {
                     $query->selectRaw(implode(',', $request->fields));
+                }
+
                 if ($item = $query->where('id', $id)->first()) {
                     return GenericResource::make($item, $request->fields);
                 }
