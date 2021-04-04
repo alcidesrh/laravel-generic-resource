@@ -54,15 +54,19 @@ class GenericResource extends JsonResource
                                 $data[$key2] = new GenericResourceCollection($this->{$key2}, $value2);
                             } else if (\gettype($this->{$key2}) === 'object') {
                                 $data[$key2] = new GenericResource($this->{$key2}, $value2);
-                            } else if (\gettype($this->{$key2}) === 'string') {
-                                $data[$key2] = $this->{$value2};
+                            }
+                            //Property name change
+                            else if(\gettype($this->{$value2}) === 'string' && ($this->$value2 || method_exists($this->resource, $value2) || property_exists($this->resource, $value2)))
+                                $data[$key2] = $this->$value2;
+                            else if (method_exists($this->resource, $key2) || property_exists($this->resource, $key2)) {
+                                $data[$key2] = $this->$key2;
                             }
 
                         } catch (\Throwable $th) {
 
                         }
                     }
-                } else if (\gettype($value) === 'string') {
+                } else {
 
                     try {
 
@@ -72,9 +76,10 @@ class GenericResource extends JsonResource
                             $data[$newKey] = new GenericResourceCollection($this->{$value});
                         } else if (\gettype($this->{$value}) === 'object') {
                             $data[$newKey] = new GenericResource($this->{$value});
-                        } else if (\gettype($this->{$value}) === 'string') {
+                        } else if ($this->{$value} || method_exists($this->resource, $value) || property_exists($this->resource, $value)) {
                             $data[$newKey] = $this->{$value};
                         }
+
                     } catch (\Throwable $th) {
 
                     }
