@@ -1,6 +1,6 @@
 {
     "name": "alcidesrh/laravel-generic-resource",
-    "description": "A generic or agnostic Laravel's Resource and their CRUD(create, read, update, delete) operations.",
+    "description": "A generic or agnostic Laravel's Resource and their CRUD (create, read, update, delete) operations.",
     "type": "library",
     "license": "MIT",
     "authors": [
