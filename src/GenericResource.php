@@ -29,18 +29,7 @@ class GenericResource extends JsonResource
     public function toArray($request)
     {
 
-        if (!$this->fields) {
-
-            $data = \get_object_vars($this)['resource'];
-            $data = $data->toArray();
-
-            if (isset($data['pivot'])) {
-                unset($data['pivot']);
-            }
-
-            return $data;
-
-        } else if (is_array($this->fields)) {
+        if (is_array($this->fields)) {
 
             $data = [];
 
@@ -78,6 +67,16 @@ class GenericResource extends JsonResource
 
                 }
             }
+        }
+        else if (is_null($this->fields)) {
+
+            $data = \get_object_vars($this)['resource'];
+            $data = $data->toArray();
+
+            if (isset($data['pivot'])) {
+                unset($data['pivot']);
+            }
+
         }
 
         return $data ?? null;
