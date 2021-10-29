@@ -7,11 +7,11 @@
 
   $user = User::find(1);
 
-  //it will only return the id and name fields.
+  // It will only return the id and name fields.
   return new GenericResource( $user, ['id', 'name']);
 ```
 
-### This package can help you to return data as a traditional Laravel Resource without making a Resource or ResourceCollection for every single Model.
+This package can help you to return data as a traditional Laravel Resource without making a Resource or ResourceCollection for every single Model.
 
 <!-- Sometimes you may need just the id and name fields of an entity: e.g. to list it in an input select.
 
@@ -21,7 +21,7 @@ you are doing data **overfetching** that can slow down the app and it could brin
 Another solution is to make a dedicated Resource for that particular case, but as the app grows, you will find yourself making a new
 Resource for every single case, even when you need to fetch some data that doesn't require a complex transformation. -->
 
-`GenericResource` and `GenericResourceColecction` implement a solution to deal with that.  
+<!-- `GenericResource` and `GenericResourceColecction` implement a solution to deal with that.   -->
 <br>
 
  <details open="open">
