@@ -2,6 +2,15 @@
 
 ### This package can help you to return data as a traditional Laravel Resource without making a Resource for every single Model.
 
+```php
+  use Alcidesrh\Generic\GenericResource;
+
+  $user = User::find(1);
+
+  //it will only return the id and name fields.
+  return new GenericResource( $user, ['id', 'name']);
+```
+
 Sometimes you may need just the id and name fields of an entity: e.g. to list it in an input select.
 
 Maybe you can use an existing Resource of that entity, but if that Resource returns more that the id and name fields, then
