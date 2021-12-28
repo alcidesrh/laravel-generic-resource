@@ -57,9 +57,9 @@ class GenericResource extends JsonResource
                             $data[$newKey] = new GenericResourceCollection($this->$value);
                         } else if (\gettype($this->$value) === 'object') {
                             $data[$newKey] = new GenericResource($this->$value);
-                        } else if (array_key_exists($value, $this->resource->getAttributes()) || method_exists($this->resource, $value) || property_exists($this->resource, $value)) {
+                        } else if (property_exists($this->resource, $value) || (method_exists($this->resource, 'getAttributes') && array_key_exists($value, $this->resource->getAttributes())) || method_exists($this->resource, $value)) {
                             $data[$newKey] = $this->$value;
-                    }
+                        }
 
                     } catch (\Throwable $th) {
 
