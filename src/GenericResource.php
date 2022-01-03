@@ -37,16 +37,23 @@ class GenericResource extends JsonResource
 
                 if (\is_array($value)) {
 
-                        try {
-                            if ($this->$key instanceof Collection) {
-                                $data[$key] = new GenericResourceCollection($this->$key, $value);
-                            } else if (\gettype($this->$key) === 'object') {
-                                $data[$key] = new GenericResource($this->$key, $value);
-                            }
-
-                        } catch (\Throwable $th) {
-
+                    try {
+                        if ($this->$key instanceof Collection) {
+                            $data[$key] = new GenericResourceCollection($this->$key, $value);
+                        } else if (\gettype($this->$key) === 'object') {
+                            $data[$key] = new GenericResource($this->$key, $value);
                         }
+
+                    } catch (\Throwable$th) {
+                        if (method_exists($this->resource, $key)) {
+                            $result = call_user_func(array($this->resource, $key));
+                            if ($result instanceof Collection) {
+                                $data[$key] = new GenericResourceCollection($result, $value);
+                            } else if (\gettype($result) === 'object') {
+                                $data[$key] = new GenericResource($result, $value);
+                            }
+                        }
+                    }
                 } else {
 
                     try {
@@ -61,14 +68,24 @@ class GenericResource extends JsonResource
                             $data[$newKey] = $this->$value;
                         }
 
-                    } catch (\Throwable $th) {
+                    } catch (\Throwable$th) {
+
+                        if (method_exists($this->resource, $newKey)) {
+                            $result = call_user_func(array($this->resource, $newKey));
+                            if ($result instanceof Collection) {
+                                $data[$newKey] = new GenericResourceCollection($result);
+                            } else if (\gettype($result) === 'object') {
+                                $data[$newKey] = new GenericResource($result);
+                            } else {
+                                $data[$newKey] = $result;
+                            }
+                        }
 
                     }
 
                 }
             }
-        }
-        else if (is_null($this->fields)) {
+        } else if (is_null($this->fields)) {
 
             $data = \get_object_vars($this)['resource'];
             $data = $data->toArray();
@@ -82,4 +99,3 @@ class GenericResource extends JsonResource
         return $data ?? null;
     }
 }
-
