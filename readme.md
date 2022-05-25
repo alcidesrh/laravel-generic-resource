@@ -1,7 +1,7 @@
 ## <p align="center">A Generic and Laravel Resource and ResourceCollection</p>
 
 
-# Basic use
+**Basic use**
 
 ```php
   use Alcidesrh\Generic\GenericResource;
