@@ -1,4 +1,4 @@
-## <p align="center">A generic and agnostic Laravel Resource and ResourceCollection</p>
+## <p align="center">A generic and Laravel Resource and ResourceCollection</p>
 
 
 
@@ -56,21 +56,6 @@ Resource for every single case, even when you need to fetch some data that doesn
 
 ```sh
 composer require alcidesrh/laravel-generic-resource
-```
-
-<br>
-
-## Usage
-
-#### GenericResource
-
-```php
-  use Alcidesrh\Generic\GenericResource;
-
-  $user = User::find(1);
-
-  //it will only return the id and name fields.
-  return new GenericResource( $user, ['id', 'name']);
 ```
 
 <br>
@@ -159,14 +144,13 @@ You can add many nested level as the relations allow:
 
 <br>
 
-**Note**: Both `GenericResource` and `GenericResourceCollection` classes were made following the guide line from the official [Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources) with some extra code to make it generic and agnostic. So you can expect the same structure and behavior.
+**Note**: Both `GenericResource` and `GenericResourceCollection` classes were made following the guide line from the official [Laravel's Api Resources documentation](https://laravel.com/docs/8.x/eloquent-resources) with some extra code to make it generic. So you can expect the same structure and behavior.
 
 <br>
 
 ## GenericController
 
-The main goal of this package is to provide an agnostic `GenericResource` and `GenericResourceCollection`. However this package also provides an
-agnostic `GenericController` which can be used to fetch data that doesn't require a complex query or transformation, and it will return a `GenericResource` or `GenericResourceCollection` only with the fields that were requested or all fields if none was requested.
+The main goal of this package is to provide `GenericResource` and `GenericResourceCollection`. However this package also provides a `GenericController` which can be used to fetch data that doesn't require a complex query or transformation, and it will return a `GenericResource` or `GenericResourceCollection` only with the fields that were requested or all fields if none was requested.
 
 It can help to prevent overloading the app with routes and controller functions for every small and simple data portion required dynamically in the front-end via ajax.
 
@@ -338,8 +322,8 @@ return [
     |
      */
     // configure route and prefix
-    // e.g. to have this route https://yourdomain/agnostic/items for items list
-    // change prefix: agnostic and list_route_name: items
+    // e.g. to have this route https://yourdomain/products/items for items list
+    // change 'prefix' key value to 'products' and 'list_route_name' key value to 'items'
     'route' => [
 
         //Route's prefix for generic CRUD(create, read, update and delete) operations
