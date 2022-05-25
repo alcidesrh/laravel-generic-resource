@@ -1,4 +1,4 @@
-<br/>
+
 ## A Generic and Laravel Resource and ResourceCollection
 
 
