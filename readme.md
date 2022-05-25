@@ -1,4 +1,4 @@
-## <p align="center">A Generic and Laravel Resource and ResourceCollection</p>
+## A Generic and Laravel Resource and ResourceCollection
 
 
 **Basic use**
