@@ -64,7 +64,7 @@ composer require alcidesrh/laravel-generic-resource
 
 **Working with nested or related models**
 
-Supose the User class has a parent property of type User class as well, a `belongsTo` relation with itself. And also User class has a `belongsToMany` relation with Product class. So `$user->parent` returns an intance of User class and `$user->products` a collection of intances of Product class.
+Supose the User class has a parent property of type User class as well, a `belongsTo` relation with itself. And also has a `belongsToMany` relation with Product class. So `$user->parent` returns an intance of User class and `$user->products` a collection of intances of Product class.
 
 Let say we want a list of users with just these fields: id, name, parent (only the id and name fields of the parent) and products list (only the id, name and price fields of the product). This is how we can get only those data:
 
@@ -88,10 +88,17 @@ You can add many nested level as the relations allow:
 ```php
     ...
     'products' => [
+      'id',
+      'name',
+      'price',
+      'order' => [
         'id',
-        'name',
-        'price',
-        'order' => ['id', 'created_at', 'company' => ['id', 'name']]
+        'created_at',
+        'company' => [
+          'id',
+          'name'
+        ]
+      ]
     ]
 ```
 
