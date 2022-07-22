@@ -1,5 +1,5 @@
 
-## A Generic and Laravel Resource and ResourceCollection
+## A generic Laravel Resource and ResourceCollection
 
 
 **Basic use**
